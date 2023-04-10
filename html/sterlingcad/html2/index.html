@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+  <title>Home</title>
+  <meta name="description" content="Creating and Innovating for a Better Future">
+  <meta name="robots" content="noarchive" />
+  <meta name="Baiduspider" content="noarchive" />
+  <meta name="googlebot" content="noarchive" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script src="js/index.js"></script> 
+  <script async defer src="https://apis.google.com/js/api.js"></script>
+  <script async defer src="https://accounts.google.com/gsi/client" onload="google.accounts.id.initialize({ client_id: CLIENT_ID, callback: gisLoaded })"></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+      <style>
+       
+  
+          header {
+              background-color: transparent;
+              color: white;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+          
+              width: 100vw;
+              position: sticky;
+              top: 0;
+              transition: background-color 1s ease;
+          }
+  
+          #logo {
+              font-size: 2vh;
+              display: flex;
+              align-items: center;
+              margin-right: 3vw;
+          }
+  
+          #logo img {
+              width: auto;
+              max-height: 5vh;
+              cursor: pointer;
+              margin-right: 3vw;
+              margin-left: 3vw;
+              transition: margin-right 1s ease;
+          }
+  
+          #logo a {
+              text-decoration: none;
+              color: inherit;
+          }
+  
+          nav {
+              display: flex;
+              margin-left: auto;
+          }
+  
+          nav a {
+              text-decoration: none;
+              color: white;
+              margin: 0 15px;
+            
+              border-radius: 5px;
+              transition: background-color 0.3s;
+          }
+  
+          nav a:hover {
+              background-color: rgba(255, 255, 255, 0.1);
+          }
+  
+          /* Change the header background color when scrolled down */
+          header.scrolled {
+              background-color: black;
+          }
+  
+          /* Media query for smaller screens (tablets and below) */
+          @media (max-width: 760px) {
+              #logo {
+                  margin-right: auto;
+                  text-align: center;
+              }
+  
+              #logo img {
+                  margin-right: 3vw;
+                  margin-left: 5vw;
+              }
+  
+              nav {
+                  display: none;
+              }
+            }
+              @media (min-width: 761px) {
+    #site-header a {
+        display: none;
+    }
+}
+
+              /* Slide-out site header */
+              #site-header {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    z-index: 3;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    transition: left 0.5s ease;
+}
+
+  
+              #site-header.open {
+                  left: 0;
+              }
+  
+              #site-header a {
+                  display: block;
+                 
+                  color: white;
+                  text-decoration: none;
+                  text-align: center;
+              }
+          
+      </style>
+   
+   <script>
+    window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        header.classList.toggle("scrolled", window.scrollY > 0);
+    });
+
+    // JavaScript to toggle the site header
+    function toggleSiteHeader() {
+        const siteHeader = document.getElementById("site-header");
+        siteHeader.classList.toggle("open");
+
+        const header = document.querySelector("header");
+        header.classList.toggle("open");
+
+        const mainNav = document.querySelector("#main-nav");
+
+        if (siteHeader.classList.contains("open")) {
+            mainNav.style.display = "none";
+            // Hide the text within <a> elements in #main-nav
+            const navLinks = document.querySelectorAll("#main-nav a");
+            navLinks.forEach(function (link) {
+                link.style.opacity = 0;
+            });
+        } else {
+            // Check the screen size before showing main-nav
+            if (window.innerWidth > 760) {
+                mainNav.style.display = "flex";
+                // Show the text within <a> elements in #main-nav
+                const navLinks = document.querySelectorAll("#main-nav a");
+                navLinks.forEach(function (link) {
+                    link.style.opacity = 1;
+                });
+            }
+            // Hide the text within <a> elements in #site-header
+            const siteHeaderLinks = document.querySelectorAll("#site-header a");
+            siteHeaderLinks.forEach(function (link) {
+                link.style.opacity = 0;
+            });
+        }
+    }
+
+    // JavaScript to close the site header when clicking a tab or outside of it
+    document.addEventListener("click", function (event) {
+        const siteHeader = document.getElementById("site-header");
+        const header = document.querySelector("header");
+        const mainNav = document.querySelector("#main-nav");
+
+        if (siteHeader.classList.contains("open")) {
+            if (!event.target.closest("#site-header") && !event.target.closest("#logo")) {
+                siteHeader.classList.remove("open");
+                header.classList.remove("open");
+                // Check the screen size before showing main-nav
+                if (window.innerWidth > 760) {
+                    mainNav.style.display = "flex";
+                    // Show the text within <a> elements in #main-nav
+                    const navLinks = document.querySelectorAll("#main-nav a");
+                    navLinks.forEach(function (link) {
+                        link.style.opacity = 1;
+                    });
+                }
+            }
+        }
+    });
+</script>
+
+
+
+
+
+  </head>
+  <body>
+      <header>
+          <div id="logo">
+              <img src="../img/CAD-Logo.png" alt="CAD Logo" onclick="toggleSiteHeader()">
+              <a href="home.html">SterlingCAD</a>
+          </div>
+          <nav id="main-nav">
+            <a href="#">Tab 1</a>
+            <a href="#">Tab 2</a>
+            <a href="#">Tab 3</a>
+            <a href="#">Tab 4</a>
+            <a href="#">Tab 5</a>
+        </nav>
+      </header>
+  
+      <!-- Your website content goes here -->
+  
+      <!-- Site header for small screens -->
+      <div id="site-header">
+          <a href="#">Tab 10</a>
+          <a href="#">Tab 20</a>
+          <a href="#">Tab 30</a>
+          <a href="#">Tab 40</a>
+          <a href="#">Tab 50</a>
+          <div class="widget-container">
+            <div class="widget-toggle"></div>
+            <div class="social">
+              <a href="#" class="button-link facebook">facebook</a>
+              <a href="#" class="button-link instagram">instagram</a>
+              <a href="#" class="button-link linkedin">linkedin</a>
+              <a href="#" class="button-link twitter">twitter</a>
+            </div>
+          </div>
+          
+          <script>
+            const widgetToggle = document.querySelector('.widget-toggle');
+            const social = document.querySelector('.social');
+          
+            widgetToggle.addEventListener('click', function() {
+              social.classList.toggle('active');
+            });
+          </script>
+      </div>
+  </body>
+  </html>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="hero-content">
+        <h1>Creating and Innovating for a Better Future</h1>
+        <br>
+        
+        <br><br><br><br><br>
+        <div class="hero-content2">
+        <h3>At Sterling Conglomerate we strive to provide only the most top tier products, services, and applications for everyday and business needs. We highly value and encourage user input and we pride ourselves on our Sterling reputation of quality, reputation, and work ethic.</h4>
+      </div>
+    </div>
+      <br><br><br><br><br>
+<br><br><br><br><br>
+
+
+<style>
+  /* Apply styles to the parent container (e.g., a div) to center the iframe */
+  .iframe-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden; /* Ensure that the iframe doesn't overflow the container */
+  }
+
+  /* Style the iframe */
+  iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none; /* Remove iframe border, if any */
+  }
+</style>
+</head>
+<body>
+<!-- Create a container for centering the iframe -->
+<div class="iframe-container">
+  <!-- Embed the iframe with your desired src attribute -->
+  <iframe src="http://localhost:3000"></iframe>
+</div>
+
+<br><br><br><br><br>
+</body>
+      <footer>
+     
+        
+        
+        
+        <div class="sitemap">
+          <a href="training.html">Training</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="shop.html">Products</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="faq.html">FAQs</a>
+          <a href="blog.html">Blog</a>
+          <a href="terms">Terms of Use</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="support.html">Support</a>
+          <a href="carreers.html">Careers</a>
+          <a href="testimonials">Testimonials</a>
+          <a href="news">News</a>
+          <a href="reviews.html">Customer Reviews</a>
+          <a href="login.html">Login</a>
+        </div>
+      
+      </footer>
+    
+</html>

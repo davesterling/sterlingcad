@@ -1,0 +1,78 @@
+<html>
+<head>
+  
+  <title>Questions's</title>
+  <style>
+.faq {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 10vh;
+  width: 75%;
+  background-color: #c0c0c0;
+  border: 2px solid black;
+  border-radius: 5%;
+  transition: height 0.3s ease-in-out;
+  margin: 5% auto;
+  text-align: center;
+  padding-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq.expanded {
+  height: 30vh;
+  margin: 5% auto;
+}
+
+.question {
+  opacity: 1;
+  transition: opacity 0.5s 1s;
+}
+
+.answer {
+  opacity: 0;
+  transition: opacity 0.5s 1s;
+}
+
+.faq.expanded .question {
+  opacity: 0;
+}
+
+.faq.expanded .answer {
+  opacity: 1;
+}
+
+.question, .answer {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+</style>
+</head>
+<body>
+    <script>
+    
+    
+    function toggleAccordion(element) {
+  element.classList.toggle('expanded');
+}
+
+
+
+
+      </script>
+
+<div class="faq" onclick="toggleAccordion(this)">
+    <div class="question">Question 1</div>
+    <div class="answer">Answer 1</div>
+  </div>
+  
+      
+  </div>
+</div>
+      
+</body>
+</html>
